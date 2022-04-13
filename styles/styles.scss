@@ -1,0 +1,2380 @@
+// VARIABLES
+$night: #131862;
+$afternoon: #bea9de;
+$streetDay: #b3b3b3;
+$streetNight: 	#343434;
+$buildings: #ffffff;
+$brick: #BC4A3C;
+$buildingsWindows: #a8ccd7;
+
+html,body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 270px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .sky {
+        animation-name: day;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+
+        & div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    @keyframes day {
+        0% {
+            background-color: #6EC8ED;
+        }
+
+        20% {
+            background-color: $afternoon;
+        }
+
+        40% {
+            background-color: #2e4482;
+        }
+
+        60% {
+            background-color: $night;
+        }
+
+        80% {
+            background-color: #e9bb93;
+        }
+
+        100% {
+            background-color: #6EC8ED;
+        }
+    }
+
+    @keyframes sunAppear {
+        0% {
+            left: 0;
+        }
+
+        50% {
+            left: -200px;
+        }
+
+        100% {
+            left: 0;
+        }
+    }
+
+    .sun {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background-color: #F4C82F;
+        box-shadow: 1px 1px 25px #F4C82F;
+        margin: 25px;
+        animation-name: sunAppear;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        position: absolute;
+    }
+
+    @keyframes moonAppear {
+        0% {
+            left: -200px;
+        }
+
+        50% {
+            left: 0px;
+        }
+
+        100% {
+            left: -200px;
+        }
+    }
+
+    .moon {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background-color: #e3e3d0;
+        position: absolute;
+        box-shadow: 1px 1px 25px #e3e3d0;
+        margin: 25px;
+        animation-name: moonAppear;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+
+        &::after {
+            position: absolute;
+            content: '';
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #9d9d9a;
+            top: 45px;
+            left: 15px;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #9d9d9a;
+            top: 18px;
+            left: 62px;
+        }
+
+        &--detail {
+            position: absolute;
+            content: '';
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: #9d9d9a;
+            top: 65px;
+            left: 50px;
+        }
+    }
+    
+    .ground {
+        background-color: $streetDay;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        height: 20px;
+        position: relative;
+    }
+
+    .buildings {
+        &--building__1 {
+            height: 300px;
+            width: 110px;
+            position: absolute;
+            top: -300px;
+            background-color: $buildings;
+
+            // WINDOWS
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 25px;
+                top: 20px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 65px;
+                top: 20px;
+            }
+        }
+
+        // BUILDING 1 WINDOWS
+        .building-1--window__1 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            position: relative;
+            left: 65px;
+            top: 60px;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+                top: 40px;
+            }
+        }
+
+        .building-1--window__2 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 35px;
+            top: 100px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-1--window__3 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 5px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-1--window__4 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: -65px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            // BUILDING 1 DOOR
+            &::after {
+                height: 40px;
+                width: 60px;
+                background-color: $buildingsWindows;
+                content: '';
+                position: absolute;
+                top: 80px;
+            }
+
+            &::before {
+                content: '';
+                height: 40px;
+                width: 2px;
+                background-color: #b8b8b8;
+                position: absolute;
+                top: 80px;
+                z-index: 81000;
+                left: 29px;
+            }
+        }
+
+        // BUILDING 2
+        &--building__2 {
+            height: 230px;
+            width: 120px;
+            position: absolute;
+            top: -230px;
+            left: 110px;
+            background-color: $brick;
+
+            &::after {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 10px;
+            }
+
+            &::before {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 47.5px;
+            }
+        }
+
+        // BUILDING 2 WINDOWS
+        .building-2--window__1 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 25px;
+            left: 85px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: -37.5px;
+            }
+        }
+
+        .building-2--window__2 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 75px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: 37.5px;
+            }
+        }
+
+        .building-2--window__3 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 125px;
+            right: 10px;
+
+            // BUILDING 2 DOOR
+            &::after {
+                height: 35px;
+                width: 25px;
+                background-color: #343434;
+                content: '';
+                position: absolute;
+                top: 70px;
+                left: -5px;
+            }
+
+            &::before {
+                content: '';
+                height: 15px;
+                width: 120px;
+                position: absolute;
+                background-color: #808080;
+                left: -85px;
+                top: -125px;
+            }
+        }
+
+        &--building__3 {
+            height: 340px;
+            width: 120px;
+            position: absolute;
+            top: -340px;
+            left: 230px;
+            background-color: $buildingsWindows;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-3--window__1 {
+            height: 2px;
+            width: 120px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 150px;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-3--window__2 {
+            height: 35px;
+            width: 25px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 305px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                height: 35px;
+                width: 50px;
+                background-color: #b3b3b3;
+                position: absolute;
+                left: 40px;
+            }
+        }
+
+        // BUILDING 4
+        &--building__4 {
+            height: 300px;
+            width: 110px;
+            position: absolute;
+            top: -300px;
+            left: 350px;
+            background-color: $buildings;
+
+            // WINDOWS
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 25px;
+                top: 20px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 65px;
+                top: 20px;
+            }
+        }
+
+        // BUILDING 4 WINDOWS
+        .building-4--window__1 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            position: relative;
+            left: 65px;
+            top: 60px;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+                top: 40px;
+            }
+        }
+
+        .building-4--window__2 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 35px;
+            top: 100px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-4--window__3 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 5px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-4--window__4 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: -65px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            // BUILDING 4 DOOR
+            &::after {
+                height: 40px;
+                width: 60px;
+                background-color: $buildingsWindows;
+                content: '';
+                position: absolute;
+                top: 80px;
+            }
+
+            &::before {
+                content: '';
+                height: 40px;
+                width: 2px;
+                background-color: #b8b8b8;
+                position: absolute;
+                top: 80px;
+                z-index: 81000;
+                left: 29px;
+            }
+        }
+
+        // BUILDING 5
+        &--building__5 {
+            height: 230px;
+            width: 120px;
+            position: absolute;
+            top: -230px;
+            left: 460px;
+            background-color: $brick;
+
+            &::after {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 10px;
+            }
+
+            &::before {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 47.5px;
+            }
+        }
+
+        // BUILDING 5 WINDOWS
+        .building-5--window__1 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 25px;
+            left: 85px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: -37.5px;
+            }
+        }
+
+        .building-5--window__2 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 75px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: 37.5px;
+            }
+        }
+
+        .building-5--window__3 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 125px;
+            right: 10px;
+
+            // BUILDING 5 DOOR
+            &::after {
+                height: 35px;
+                width: 25px;
+                background-color: #343434;
+                content: '';
+                position: absolute;
+                top: 70px;
+                left: -5px;
+            }
+
+            &::before {
+                content: '';
+                height: 15px;
+                width: 120px;
+                position: absolute;
+                background-color: #808080;
+                left: -85px;
+                top: -125px;
+            }
+        }
+
+        // BUILDING 6
+        &--building__6 {
+            height: 340px;
+            width: 120px;
+            position: absolute;
+            top: -340px;
+            left: 580px;
+            background-color: $buildingsWindows;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-6--window__1 {
+            height: 2px;
+            width: 120px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 150px;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-6--window__2 {
+            height: 35px;
+            width: 25px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 305px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                height: 35px;
+                width: 50px;
+                background-color: #b3b3b3;
+                position: absolute;
+                left: 40px;
+            }
+        }
+
+        // BUILDING 7
+        &--building__7 {
+            height: 300px;
+            width: 110px;
+            position: absolute;
+            top: -300px;
+            left: 700px;
+            background-color: $buildings;
+
+            // WINDOWS
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 25px;
+                top: 20px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 65px;
+                top: 20px;
+            }
+        }
+
+        // BUILDING 7 WINDOWS
+        .building-7--window__1 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            position: relative;
+            left: 65px;
+            top: 60px;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+                top: 40px;
+            }
+        }
+
+        .building-7--window__2 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 35px;
+            top: 100px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-7--window__3 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 5px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-7--window__4 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: -65px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            // BUILDING 7 DOOR
+            &::after {
+                height: 40px;
+                width: 60px;
+                background-color: $buildingsWindows;
+                content: '';
+                position: absolute;
+                top: 80px;
+            }
+
+            &::before {
+                content: '';
+                height: 40px;
+                width: 2px;
+                background-color: #b8b8b8;
+                position: absolute;
+                top: 80px;
+                z-index: 81000;
+                left: 29px;
+            }
+        }
+
+        // BUILDING 8
+        &--building__8 {
+            height: 230px;
+            width: 120px;
+            position: absolute;
+            top: -230px;
+            left: 810px;
+            background-color: $brick;
+
+            &::after {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 10px;
+            }
+
+            &::before {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 47.5px;
+            }
+        }
+
+        // BUILDING 8 WINDOWS
+        .building-8--window__1 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 25px;
+            left: 85px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: -37.5px;
+            }
+        }
+
+        .building-8--window__2 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 75px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: 37.5px;
+            }
+        }
+
+        .building-8--window__3 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 125px;
+            right: 10px;
+
+            // BUILDING 8 DOOR
+            &::after {
+                height: 35px;
+                width: 25px;
+                background-color: #343434;
+                content: '';
+                position: absolute;
+                top: 70px;
+                left: -5px;
+            }
+
+            &::before {
+                content: '';
+                height: 15px;
+                width: 120px;
+                position: absolute;
+                background-color: #808080;
+                left: -85px;
+                top: -125px;
+            }
+        }
+
+        // BUILDING 9
+        &--building__9 {
+            height: 340px;
+            width: 120px;
+            position: absolute;
+            top: -340px;
+            left: 930px;
+            background-color: $buildingsWindows;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-9--window__1 {
+            height: 2px;
+            width: 120px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 150px;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-9--window__2 {
+            height: 35px;
+            width: 25px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 305px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                height: 35px;
+                width: 50px;
+                background-color: #b3b3b3;
+                position: absolute;
+                left: 40px;
+            }
+        }
+
+        // BUILDING 10
+        &--building__10 {
+            height: 300px;
+            width: 110px;
+            position: absolute;
+            top: -300px;
+            left: 1050px;
+            background-color: $buildings;
+
+            // WINDOWS
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 25px;
+                top: 20px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 65px;
+                top: 20px;
+            }
+        }
+
+        // BUILDING 10 WINDOWS
+        .building-10--window__1 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            position: relative;
+            left: 65px;
+            top: 60px;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+                top: 40px;
+            }
+        }
+
+        .building-10--window__2 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 35px;
+            top: 100px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-10--window__3 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 5px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-10--window__4 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: -65px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            // BUILDING 10 DOOR
+            &::after {
+                height: 40px;
+                width: 60px;
+                background-color: $buildingsWindows;
+                content: '';
+                position: absolute;
+                top: 80px;
+            }
+
+            &::before {
+                content: '';
+                height: 40px;
+                width: 2px;
+                background-color: #b8b8b8;
+                position: absolute;
+                top: 80px;
+                z-index: 81000;
+                left: 29px;
+            }
+        }
+
+        // BUILDING 11
+        &--building__11 {
+            height: 230px;
+            width: 120px;
+            position: absolute;
+            top: -230px;
+            left: 1160px;
+            background-color: $brick;
+
+            &::after {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 10px;
+            }
+
+            &::before {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 47.5px;
+            }
+        }
+
+        // BUILDING 11 WINDOWS
+        .building-11--window__1 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 25px;
+            left: 85px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: -37.5px;
+            }
+        }
+
+        .building-11--window__2 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 75px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: 37.5px;
+            }
+        }
+
+        .building-11--window__3 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 125px;
+            right: 10px;
+
+            // BUILDING 11 DOOR
+            &::after {
+                height: 35px;
+                width: 25px;
+                background-color: #343434;
+                content: '';
+                position: absolute;
+                top: 70px;
+                left: -5px;
+            }
+
+            &::before {
+                content: '';
+                height: 15px;
+                width: 120px;
+                position: absolute;
+                background-color: #808080;
+                left: -85px;
+                top: -125px;
+            }
+        }
+
+        // BUILDING 12
+        &--building__12 {
+            height: 340px;
+            width: 120px;
+            position: absolute;
+            top: -340px;
+            left: 1280px;
+            background-color: $buildingsWindows;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-12--window__1 {
+            height: 2px;
+            width: 120px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 150px;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-12--window__2 {
+            height: 35px;
+            width: 25px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 305px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                height: 35px;
+                width: 50px;
+                background-color: #b3b3b3;
+                position: absolute;
+                left: 40px;
+            }
+        }
+
+        // BUILDING 13
+        &--building__13 {
+            height: 300px;
+            width: 110px;
+            position: absolute;
+            top: -300px;
+            left: 1400px;
+            background-color: $buildings;
+
+            // WINDOWS
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 25px;
+                top: 20px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 65px;
+                top: 20px;
+            }
+        }
+
+        // BUILDING 13 WINDOWS
+        .building-13--window__1 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            position: relative;
+            left: 65px;
+            top: 60px;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+                top: 40px;
+            }
+        }
+
+        .building-13--window__2 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 35px;
+            top: 100px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-13--window__3 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 5px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-13--window__4 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: -65px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            // BUILDING 13 DOOR
+            &::after {
+                height: 40px;
+                width: 60px;
+                background-color: $buildingsWindows;
+                content: '';
+                position: absolute;
+                top: 80px;
+            }
+
+            &::before {
+                content: '';
+                height: 40px;
+                width: 2px;
+                background-color: #b8b8b8;
+                position: absolute;
+                top: 80px;
+                z-index: 81000;
+                left: 29px;
+            }
+        }
+
+        // BUILDING 14
+        &--building__14 {
+            height: 230px;
+            width: 120px;
+            position: absolute;
+            top: -230px;
+            left: 1510px;
+            background-color: $brick;
+
+            &::after {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 10px;
+            }
+
+            &::before {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 47.5px;
+            }
+        }
+
+        // BUILDING 14 WINDOWS
+        .building-14--window__1 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 25px;
+            left: 85px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: -37.5px;
+            }
+        }
+
+        .building-14--window__2 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 75px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: 37.5px;
+            }
+        }
+
+        .building-14--window__3 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 125px;
+            right: 10px;
+
+            // BUILDING 14 DOOR
+            &::after {
+                height: 35px;
+                width: 25px;
+                background-color: #343434;
+                content: '';
+                position: absolute;
+                top: 70px;
+                left: -5px;
+            }
+
+            &::before {
+                content: '';
+                height: 15px;
+                width: 120px;
+                position: absolute;
+                background-color: #808080;
+                left: -85px;
+                top: -125px;
+            }
+        }
+
+        // BUILDING 15
+        &--building__15 {
+            height: 340px;
+            width: 120px;
+            position: absolute;
+            top: -340px;
+            left: 1630px;
+            background-color: $buildingsWindows;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-15--window__1 {
+            height: 2px;
+            width: 120px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 150px;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 120px;
+                background-color: #b3b3b3;
+                top: 50px;
+            }
+
+            &::before {
+                top: 100px;
+            }
+        }
+
+        .building-15--window__2 {
+            height: 35px;
+            width: 25px;
+            background-color: #b3b3b3;
+            position: absolute;
+            top: 305px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                height: 35px;
+                width: 50px;
+                background-color: #b3b3b3;
+                position: absolute;
+                left: 40px;
+            }
+        }
+
+        // BUILDING 16
+        &--building__16 {
+            height: 300px;
+            width: 110px;
+            position: absolute;
+            top: -300px;
+            left: 1750px;
+            background-color: $buildings;
+
+            // WINDOWS
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 25px;
+                top: 20px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: 65px;
+                top: 20px;
+            }
+        }
+
+        // BUILDING 16 WINDOWS
+        .building-16--window__1 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            position: relative;
+            left: 65px;
+            top: 60px;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                left: -40px;
+                top: 40px;
+            }
+        }
+
+        .building-16--window__2 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 35px;
+            top: 100px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-16--window__3 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: 5px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+            }
+
+            &::before {
+                content: '';
+                height: 20px;
+                width: 20px;
+                background-color: $buildingsWindows;
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+        }
+
+        .building-16--window__4 {
+            height: 20px;
+            width: 20px;
+            background-color: $buildingsWindows;
+            left: -65px;
+            top: 180px;
+            position: relative;
+            display: inline-block;
+
+            // BUILDING 16 DOOR
+            &::after {
+                height: 40px;
+                width: 60px;
+                background-color: $buildingsWindows;
+                content: '';
+                position: absolute;
+                top: 80px;
+            }
+
+            &::before {
+                content: '';
+                height: 40px;
+                width: 2px;
+                background-color: #b8b8b8;
+                position: absolute;
+                top: 80px;
+                z-index: 81000;
+                left: 29px;
+            }
+        }
+
+        // BUILDING 17
+        &--building__17 {
+            height: 230px;
+            width: 120px;
+            position: absolute;
+            top: -230px;
+            left: 1860px;
+            background-color: $brick;
+
+            &::after {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 10px;
+            }
+
+            &::before {
+                content: '';
+                height: 30px;
+                width: 25px;
+                position: absolute;
+                background-color: $buildingsWindows;
+                top: 25px;
+                left: 47.5px;
+            }
+        }
+
+        // BUILDING 17 WINDOWS
+        .building-17--window__1 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 25px;
+            left: 85px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: -37.5px;
+            }
+        }
+
+        .building-17--window__2 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 75px;
+            left: 10px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: $buildingsWindows;
+                height: 30px;
+                width: 25px;
+                top: 50px;
+                left: 37.5px;
+            }
+        }
+
+        .building-17--window__3 {
+            height: 30px;
+            width: 25px;
+            position: absolute;
+            background-color: $buildingsWindows;
+            top: 125px;
+            right: 10px;
+
+            // BUILDING 17 DOOR
+            &::after {
+                height: 35px;
+                width: 25px;
+                background-color: #343434;
+                content: '';
+                position: absolute;
+                top: 70px;
+                left: -5px;
+            }
+
+            &::before {
+                content: '';
+                height: 15px;
+                width: 120px;
+                position: absolute;
+                background-color: #808080;
+                left: -85px;
+                top: -125px;
+            }
+        }
+    }
+
+    @keyframes lights {
+        0% {
+            background-color: $buildingsWindows;
+        }
+
+        29% {
+            background-color: $buildingsWindows;
+        }
+
+        30% {
+            background-color: #F4C82F;
+        }
+
+        64% {
+            background-color: #F4C82F;
+        }
+
+        65% {
+            background-color: $buildingsWindows;
+        }
+
+        100% {
+            background-color: $buildingsWindows;
+        }
+    }
+
+    // TURN ON / OFF LIGHTS
+    .buildings--building__1::after,
+    .buildings--building__1::before,
+    .building-1--window__1,
+    .building-1--window__1::after,
+    .building-1--window__1::before,
+    .building-1--window__2,
+    .building-1--window__2::after,
+    .building-1--window__2::before,
+    .building-1--window__3,
+    .building-1--window__3::after,
+    .building-1--window__3::before,
+    .building-1--window__4,
+    .buildings--building__2::after,
+    .buildings--building__2::before,
+    .building-2--window__1,
+    .building-2--window__1::after,
+    .building-2--window__1::before,
+    .building-2--window__2,
+    .building-2--window__2::after,
+    .building-2--window__2::before,
+    .building-2--window__3,
+    .traffic--car__1::before,
+    .buildings--building__4::after,
+    .buildings--building__4::before,
+    .building-4--window__1,
+    .building-4--window__1::after,
+    .building-4--window__1::before,
+    .building-4--window__2,
+    .building-4--window__2::after,
+    .building-4--window__2::before,
+    .building-4--window__3,
+    .building-4--window__3::after,
+    .building-4--window__3::before,
+    .building-4--window__4,
+    .buildings--building__7::after,
+    .buildings--building__7::before,
+    .building-7--window__1,
+    .building-7--window__1::after,
+    .building-7--window__1::before,
+    .building-7--window__2,
+    .building-7--window__2::after,
+    .building-7--window__2::before,
+    .building-7--window__3,
+    .building-7--window__3::after,
+    .building-7--window__3::before,
+    .building-7--window__4,
+    .buildings--building__10::after,
+    .buildings--building__10::before,
+    .building-10--window__1,
+    .building-10--window__1::after,
+    .building-10--window__1::before,
+    .building-10--window__2,
+    .building-10--window__2::after,
+    .building-10--window__2::before,
+    .building-10--window__3,
+    .building-10--window__3::after,
+    .building-10--window__3::before,
+    .building-10--window__4,
+    .buildings--building__13::after,
+    .buildings--building__13::before,
+    .building-13--window__1,
+    .building-13--window__1::after,
+    .building-13--window__1::before,
+    .building-13--window__2,
+    .building-13--window__2::after,
+    .building-13--window__2::before,
+    .building-13--window__3,
+    .building-13--window__3::after,
+    .building-13--window__3::before,
+    .building-13--window__4,
+    .buildings--building__16::after,
+    .buildings--building__16::before,
+    .building-16--window__1,
+    .building-16--window__1::after,
+    .building-16--window__1::before,
+    .building-16--window__2,
+    .building-16--window__2::after,
+    .building-16--window__2::before,
+    .building-16--window__3,
+    .building-16--window__3::after,
+    .building-16--window__3::before,
+    .building-16--window__4,
+    .buildings--building__5::after,
+    .buildings--building__5::before,
+    .building-5--window__1,
+    .building-5--window__1::after,
+    .building-5--window__1::before,
+    .building-5--window__2,
+    .building-5--window__2::after,
+    .building-5--window__2::before,
+    .building-5--window__3,
+    .buildings--building__8::after,
+    .buildings--building__8::before,
+    .building-8--window__1,
+    .building-8--window__1::after,
+    .building-8--window__1::before,
+    .building-8--window__2,
+    .building-8--window__2::after,
+    .building-8--window__2::before,
+    .building-8--window__3,
+    .buildings--building__11::after,
+    .buildings--building__11::before,
+    .building-11--window__1,
+    .building-11--window__1::after,
+    .building-11--window__1::before,
+    .building-11--window__2,
+    .building-11--window__2::after,
+    .building-11--window__2::before,
+    .building-11--window__3,
+    .buildings--building__14::after,
+    .buildings--building__14::before,
+    .building-14--window__1,
+    .building-14--window__1::after,
+    .building-14--window__1::before,
+    .building-14--window__2,
+    .building-14--window__2::after,
+    .building-14--window__2::before,
+    .building-14--window__3,
+    .buildings--building__17::after,
+    .buildings--building__17::before,
+    .building-17--window__1,
+    .building-17--window__1::after,
+    .building-17--window__1::before,
+    .building-17--window__2,
+    .building-17--window__2::after,
+    .building-17--window__2::before,
+    .building-17--window__3 {
+        animation-name: lights;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+    }
+
+    .traffic--car__1, 
+    .traffic--car__2 {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        width: 30px;
+        height: 0px;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        border-bottom: 10px solid #c62222;
+        position: absolute;
+        top: -15px;
+        left: 50px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        z-index: 90000;
+
+        &::after {
+            content: '';
+            width: 65px;
+            height: 15px;
+            position: absolute;
+            top: 10px;
+            left: -23px;
+            background-color: #c62222;
+            border-top-left-radius: 15px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 5px;
+        }
+
+        &::before {
+            content: '';
+            height: 4px;
+            width: 4px;
+            background-color: $buildingsWindows;
+            position: absolute;
+            left: -19px;
+            top: 13px;
+            border-top-left-radius: 15px;
+            z-index: 82000;
+        }
+    }
+
+    // CAR 1 WHEELS
+    .car-1--wheels {
+        height: 12px;
+        width: 12px;
+        background-color: #000000;
+        border-radius: 50%;
+        z-index: 83000;
+        position: absolute;
+        top: 18px;
+        left: -13px;
+
+        &::after {
+            content: '';
+            height: 12px;
+            width: 12px;
+            background-color: #000000;
+            position: absolute;
+            border-radius: 50%;
+            left: 35px;
+        }
+
+        &::before {
+            content: '';
+            width: 25px;
+            height: 0px;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
+            border-bottom: 8px solid $buildingsWindows;
+            position: absolute;
+            top: -16px;
+            left: 11px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    }
+
+    .traffic--car__2 {
+        background-color: #3e5f8a;
+        border-bottom: 10px solid #3e5f8a;
+        left: 150px;
+        top: -12px;
+        z-index: 92000;
+
+        &::after {
+            background-color: #3e5f8a;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 5px;
+            top: 10px;
+            left: -15px;
+        }
+    }
+
+    // CAR 2 WHEELS
+    .car-2--wheels {
+        height: 12px;
+        width: 12px;
+        background-color: #000000;
+        border-radius: 50%;
+        z-index: 83000;
+        position: absolute;
+        top: 18px;
+        left: -10px;
+
+        &::after {
+            content: '';
+            height: 12px;
+            width: 12px;
+            background-color: #000000;
+            position: absolute;
+            border-radius: 50%;
+            left: 40px;
+        }
+
+        &::before {
+            content: '';
+            width: 25px;
+            height: 0px;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
+            border-bottom: 8px solid $buildingsWindows;
+            position: absolute;
+            top: -16px;
+            left: 11px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .sun {
+        height: 125px;
+        width: 125px;
+    }
+
+    .moon {
+        height: 125px;
+        width: 125px;
+    }
+}
